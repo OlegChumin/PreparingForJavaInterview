@@ -29,7 +29,11 @@ public class Vector3D {
         this.z = z;
     }
 
-    public double vectorLength() {
+    public double vector3DLength() {
         return Math.sqrt(x * x + y * y + z * z);
+    }
+
+    public double vector3DLengthNew() {
+        return 1;
     }
 }
