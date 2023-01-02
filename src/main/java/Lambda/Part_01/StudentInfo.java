@@ -81,5 +81,17 @@ public class StudentInfo {
         });
 
         search.testStudentsUsingPredicate(students, student -> student.averageGrade > 8);
+
+        Predicate<Student> predicate1 = student -> student.averageGrade > 8;
+        Predicate<Student> predicate2 = student -> student.age < 25;
+        search.testStudentsUsingPredicate(students, predicate1);
+        search.testStudentsUsingPredicate(students, predicate2);
+
+        search.testStudentsUsingPredicate(students, predicate1.and(predicate2));
+        search.testStudentsUsingPredicate(students, predicate1.or(predicate2));
+        search.testStudentsUsingPredicate(students, predicate1.negate());
+
+
+
     }
 }
