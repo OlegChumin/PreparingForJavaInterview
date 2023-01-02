@@ -1,5 +1,7 @@
 package Lambda.Part_01;
 
+import java.util.ArrayList;
+
 public class StudentInfo {
     public static void main(String[] args) {
         Student student1 = new Student("Ivan", 'm', 22, 3, 8.3);
@@ -8,6 +10,15 @@ public class StudentInfo {
         Student student4 = new Student("Petr", 'm', 35, 4, 7);
         Student student5 = new Student("Maria", 'f', 23, 3, 9.1);
         Student student6 = new Student("Oleg", 'm', 47, 3, 10.0);
+
+        ArrayList<Student> students =  new ArrayList<>();
+
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student4);
+        students.add(student5);
+        students.add(student6);
 
     }
 }
