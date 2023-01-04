@@ -28,6 +28,7 @@ public class LambdaSample3 {
 
     static int arithmeticMethod(Arif arif) {
         System.out.println(arif.method(10, 18));
+        return 9;
     }
 
 }
