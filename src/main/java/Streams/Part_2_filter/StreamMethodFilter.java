@@ -1,6 +1,10 @@
 package Streams.Part_2_filter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamMethodFilter {
     public static void main(String[] args) {
@@ -18,6 +22,15 @@ public class StreamMethodFilter {
         students.add(student4);
         students.add(student5);
         students.add(student6);
+
+        System.out.println("students " + students);
+        List<StudentSample> filteredStudents = students.stream().filter(el -> el.getAge() > 22 && el.getAverageGrade() < 8.0).collect(Collectors.toList());
+        System.out.println(filteredStudents);
+
+        Stream<StudentSample>  studentsStream = Stream.of(student1, student2, student3, student4, student6);
+        List<StudentSample> sortedListOfStudents = studentsStream.sorted((st1, st2) -> st1.getName().compareTo(st2.getName())).collect(Collectors.toList());
+        List<StudentSample> sortedListOfStudentsNew = studentsStream.sorted(Comparator.comparing(StudentSample::getName)).collect(Collectors.toList());
+        System.out.println(sortedListOfStudents);
 
     }
 }

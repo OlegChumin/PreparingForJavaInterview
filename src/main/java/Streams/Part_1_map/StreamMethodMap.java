@@ -50,7 +50,9 @@ public class StreamMethodMap {
 
         System.out.println(stringTreeSet);
         Set<Integer> integerSet = stringTreeSet.stream().map(el -> el.length()).collect(Collectors.toSet());
+        List<Integer> integerList2 = stringTreeSet.stream().map(el -> el.length()).collect(Collectors.toList());
         System.out.println(integerSet);
+        System.out.println(integerList2);
         System.out.println();
     }
 }
