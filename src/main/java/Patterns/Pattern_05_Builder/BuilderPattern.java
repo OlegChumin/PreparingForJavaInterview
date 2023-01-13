@@ -1,4 +1,4 @@
-package Patterns.Patter_05_Builder;
+package Patterns.Pattern_05_Builder;
 
 public class BuilderPattern {
     public static void main(String[] args) {
