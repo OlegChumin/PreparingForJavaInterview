@@ -12,7 +12,6 @@ public class StreamsMethodForEach {
         System.out.println(Arrays.toString(array));
         Arrays.stream(array).forEach(Utils::addFive);
     }
-
 }
 
 class Utils {
