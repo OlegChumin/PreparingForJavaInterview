@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD) // применяется только к методу
 @Retention(RetentionPolicy.RUNTIME) // сохраняется в момент исполнения
 public @interface MethodDescription {
-    String name() default  "Oleg's annotation sample";
+    String name();
 }

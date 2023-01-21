@@ -30,7 +30,7 @@ public class ListToMap {
         return list;
     }
 
-    @MethodDescription
+    @MethodDescription(name = "by for loop")
     static Map<String, Integer> getMapOfRepeatableItemsFromList(List<String> stringList) {
 
         Map<String, Integer> treeMap = new TreeMap<>(); // for auto sorting during adding elements
@@ -54,7 +54,6 @@ public class ListToMap {
 
         int entryOfElementsCount = 0;
         stringList.forEach(element -> treeMap.put(element, entryOfElementsCount));
-
         return treeMap; // return filled treeMap
     }
 
