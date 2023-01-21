@@ -11,8 +11,13 @@ public class ListToMap {
         List<String> arrayList = getRandomStringList(); // creates random arrayList of Strings
         System.out.println(arrayList);
 
-        Map<String, Integer> treeNewMap = getMapOfRepeatableItemsFromList(arrayList);
-        System.out.println(treeNewMap);
+        Map<String, Integer> treeMap = getMapOfRepeatableItemsFromList(arrayList);
+        System.out.println(treeMap);
+
+        treeMap.clear();
+        System.out.println(treeMap);
+        treeMap = getMapOfRepeatableItemsFromListByStreams(arrayList);
+        System.out.println(treeMap);
     }
 
     static List<String> getRandomStringList() {
@@ -41,6 +46,20 @@ public class ListToMap {
             treeMap.put(element, entryOfElementsCount);
         }
         return treeMap; // return filled treeMap
+    }
+
+    @MethodDescription(name = "resolving by Streams")
+    static Map<String, Integer> getMapOfRepeatableItemsFromListByStreams(List<String> stringList) {
+
+        Map<String, Integer> treeMap = new TreeMap<>(); // for auto sorting during adding elements
+
+        stringList.forEach(element -> treeMap.put(element, 1));
+        return treeMap; // return filled treeMap
+    }
+
+    private int returnEntryOfElements(List<String> list) {
+//        list.stream().filter()
+        return 0;
     }
 }
 
