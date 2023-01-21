@@ -42,6 +42,5 @@ public class ListToMap {
         }
         return treeMap; // return filled treeMap
     }
-
 }
 
