@@ -69,9 +69,6 @@ public class ListToMap {
                 .collect(TreeMap::new,
                         (m, e) -> m.put(e, m.size()),
                         (m1, m2) -> m1.putAll(m2));
-
-        // Print the TreeMap
-        map.forEach((k, v) -> System.out.println(k + ": " + v));
         return map;
     }
 }
