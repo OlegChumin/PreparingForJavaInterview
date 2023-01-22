@@ -16,7 +16,7 @@ public class ListToMap {
 
         treeMap.clear();
         System.out.println(treeMap);
-        treeMap = getMapOfRepeatableItemsFromListByForEach(arrayList);
+        treeMap = getMapOfRepeatableItemsFromListByStreams(arrayList);
         System.out.println(treeMap);
     }
 
@@ -65,10 +65,14 @@ public class ListToMap {
     @MethodDescription(name = "resolving by Streams")
     static Map<String, Integer> getMapOfRepeatableItemsFromListByStreams(List<String> stringList) {
 
-        Map<String, Integer> treeMap = new TreeMap<>(); // for auto sorting during adding elements
+        TreeMap<String, Integer> map = stringList.stream()
+                .collect(TreeMap::new,
+                        (m, e) -> m.put(e, m.size()),
+                        (m1, m2) -> m1.putAll(m2));
 
-        stringList.forEach(element -> treeMap.put(element, 1));
-        return treeMap; // return filled treeMap
+        // Print the TreeMap
+        map.forEach((k, v) -> System.out.println(k + ": " + v));
+        return map;
     }
 }
 
