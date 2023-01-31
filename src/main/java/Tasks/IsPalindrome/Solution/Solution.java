@@ -1,10 +1,10 @@
 package Tasks.IsPalindrome.Solution;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.sql.SQLOutput;
+import java.util.*;
 
 /**
-Палиндром?Объяви и реализуй логику приватного статического метода Set<Integer> getRadix(String number), в котором нужно
+Палиндром? Объяви и реализуй логику приватного статического метода Set<Integer> getRadix(String number), в котором нужно
  определить, в каких системах счисления (от 2 до 36 включительно) представление числа number (передается в десятичной системе
  счисления) является палиндромом и добавить индекс таких систем в результат.
  Если переданное число некорректно - возвращай пустой HashSet.
@@ -26,6 +26,14 @@ import java.util.Set;
 
 public class Solution {
     public static void main(String[] args) {
+//        int numberToProcess = Integer.parseInt("112");
+//        System.out.println(numberToProcess);
+//        for (int i = 2; i < 36; i++) {
+//            String temp = Integer.toString(numberToProcess, i);
+//
+//            System.out.println(numberToProcess + " = " + temp + " in " + i +" digit system" + " Palindrome? = " + isPalindrom(temp));
+//        }
+
         System.out.println(getRadix("112"));        //expected output: [3, 27, 13, 15]
         System.out.println(getRadix("123"));        //expected output: [6]
         System.out.println(getRadix("5321"));       //expected output: []
@@ -33,20 +41,23 @@ public class Solution {
     }
 
     private static Set<Integer> getRadix(String number) {
-        Set<Integer> result = new HashSet<>();
+        Set<Integer> result = new TreeSet<>(); // интерфейс Set -> реализация TreeSet (HashSet  -> Map(Key, Const))
         try {
-            int numberToProcess = Integer.parseInt(number);
-            for (int i = 2; i < 36; i++) {
-                String temp = Integer.toString(numberToProcess, i);
-                if (isPalindrom(temp)) {
-                    result.add(i);
+            int numberToProcess = Integer.parseInt(number); // получаем строку из параметров и парсим ее в число
+            for (int i = 2; i < 36; i++) { //проходимся по всем системам счисления (от 2 до 36 включительно)
+                String temp = Integer.toString(numberToProcess, i); //Возвращает строковое представление первого
+                // аргумента в системе счисления, заданной вторым аргументом.
+                if (isPalindrom(temp)) { // проверяем на "палиндромность"
+                    result.add(i); // добавляем ту систему счисления в которой исходная строка является палиндромом
                 }
             }
-        } catch (NumberFormatException e) {}
-        return result;
+        } catch (NumberFormatException e) {
+        } // ловим исключение, если строка не парсится в число
+        return result; //Если переданное число некорректно - возвращается пустой HashSet.
     }
 
     private static boolean isPalindrom(String number) {
-        return number.equals(new StringBuilder(number).reverse());
+        return number.equals(new StringBuilder(number).reverse().toString()); //StringBuilder работает быстрее, но
+        // потоконебезопасен, StringBuffer работает медленнее, но потокобезопасен
     }
 }
