@@ -2,6 +2,8 @@ package Streams.Part_10_ParallelStream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class SampleOfParallelStream {
     public static void main(String[] args) {
@@ -41,5 +43,8 @@ public class SampleOfParallelStream {
         long result2 = arrayList.parallelStream().reduce((accumulator, element) -> accumulator + element).get();
         long endTime2 = System.currentTimeMillis();
         System.out.println("result of parallel stream " + result2 + " processing time " + (endTime2 - startTime2));
+
+        IntStream str = IntStream.range(20, 30);
+        str.forEach(System.out::println);
     }
 }
