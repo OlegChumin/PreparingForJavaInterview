@@ -9,6 +9,8 @@ public class SingletonPattern {
         System.out.println(singleton2.i);
         singleton2.i = 10;
         System.out.println(singleton1.i);
+        System.out.println("singleton1 : " + singleton1);
+        System.out.println("singleton2 : " + singleton2);
 //        Singleton sin = new Singleton();
     }
 }
